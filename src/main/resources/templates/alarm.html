@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>알람 목록</title>
+</head>
+<body>
+<h1>알람 목록</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>이름</th>
+        <th>설명</th>
+        <th>활성화</th>
+        <th>알람 시간</th>
+        <th>상세 보기</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="alarm : ${alarms}">
+        <td th:text="${alarm.name}"></td>
+        <td th:text="${alarm.description}"></td>
+        <td th:text="${alarm.active ? '활성' : '비활성'}"></td>
+        <td th:text="${alarm.alarmTime != null ? alarm.alarmTime : '설정되지 않음'}"></td>
+        <td><a th:href="@{/Alarm/{id}(id=${alarm.id})}">상세 보기</a></td>
+    </tr>
+    </tbody>
+</table>
+
+<a href="/Alarm/add">알람 추가</a>
+</body>
+</html>

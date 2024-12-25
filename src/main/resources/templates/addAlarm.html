@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>알람 추가</title>
+</head>
+<body>
+<h1>알람 추가</h1>
+
+<form action="/Alarm/save" method="post">
+    <label for="name">알람 이름:</label>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="description">설명:</label>
+    <input type="text" id="description" name="description"><br><br>
+
+    <label for="active">활성화:</label>
+    <input type="checkbox" id="active" name="active"><br><br>
+
+    <label for="alarmTime">알람 시간:</label>
+    <input type="time" id="alarmTime" name="alarmTime"><br><br>
+
+    <button type="submit">추가</button>
+</form>
+</body>
+</html>

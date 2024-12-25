@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>알람 시간 됨</title>
+</head>
+<body>
+<h1>알람 시간이 되었습니다!</h1>
+<p>알람 이름: <span th:text="${alarm.name}"></span></p>
+<p>설명: <span th:text="${alarm.description}"></span></p>
+<p>활성화: <span th:text="${alarm.active ? '활성' : '비활성'}"></span></p>
+
+<p><a href="/Alarm/alarms">알람 목록으로 돌아가기</a></p>
+</body>
+</html>

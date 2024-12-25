@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>알람 상세</title>
+</head>
+<body>
+<h1>알람 상세</h1>
+<p>이름: <span th:text="${alarm.name}"></span></p>
+<p>설명: <span th:text="${alarm.description}"></span></p>
+<p>활성화:
+    <span th:text="${alarm.active ? '활성' : '비활성'}"></span>
+</p>
+<p>알람 시간: <span th:text="${alarm.alarmTime != null ? alarm.alarmTime : '설정되지 않음'}"></span></p>
+
+<form th:action="@{/Alarm/{id}/activate(id=${alarm.id})}" method="post">
+    <button type="submit" th:text="${alarm.active ? '비활성화' : '활성화'}"></button>
+</form>
+
+<form th:action="@{/Alarm/{id}/delete(id=${alarm.id})}" method="post">
+    <button type="submit">삭제</button>
+</form>
+
+<a href="/Alarm/alarms">알람 목록으로 돌아가기</a>
+</body>
+</html>

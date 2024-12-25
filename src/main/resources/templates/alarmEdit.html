@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>알람 수정</title>
+</head>
+<body>
+<h1>알람 수정</h1>
+
+<form action="/Alarm/{id}" method="post">
+  <input type="hidden" name="_method" value="PUT">
+  <div>
+    <label for="name">이름:</label>
+    <input type="text" id="name" name="name" value="${alarm.name}" required>
+  </div>
+
+  <div>
+    <label for="description">설명:</label>
+    <textarea id="description" name="description" required>${alarm.description}</textarea>
+  </div>
+
+  <div>
+    <label for="alarmTime">알람 시간:</label>
+    <input type="time" id="alarmTime" name="alarmTime" value="${alarm.alarmTime}" required>
+  </div>
+
+  <div>
+    <label for="active">활성화:</label>
+    <input type="checkbox" id="active" name="active" value="true"
+           th:checked="${alarm.active ? 'checked' : ''}">
+  </div>
+
+  <div>
+    <button type="submit">수정하기</button>
+  </div>
+</form>
+
+<a href="/Alarm/alarms"><button>알람 목록으로 돌아가기</button></a>
+</body>
+</html>
